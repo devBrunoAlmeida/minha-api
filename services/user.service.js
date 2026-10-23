@@ -27,3 +27,23 @@ export const listUsers = async () => {
         throw error;
     }
 }
+
+export const deleteUserById = async (id) => {
+    try {
+        const user = await UserModel.findOneAndDelete(id)
+
+        return user;
+    } catch (error) {
+        throw error;
+    }
+}
+
+export const updateUserById = async (id, payload) => {
+    try {
+        const user = await UserModel.findByIdAndUpdate(id, payload)
+
+        return user;
+    } catch (error) {
+        throw error;
+    }
+}
